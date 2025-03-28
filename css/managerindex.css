@@ -1,0 +1,722 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+/* 全屏遮罩层 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    z-index: 1001;
+}
+
+#successOverlay,
+#loadingOverlay {
+    z-index: 1002;
+}
+
+/* 弹窗 */
+.modal {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+/* 提示文本 */
+.productreview-box p,
+.resetpwd-box p,
+.modal p {
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+    line-height: 1.6;
+
+}
+
+/* 按钮区域 */
+.modal-buttons {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 按钮样式 */
+.productreview-box button,
+.resetpwd-box button,
+.modal button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.confirm-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background: #45a049;
+}
+
+.cancel-btn {
+    background: #f44336;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #d32f2f;
+}
+
+/* 弹出时的动画 */
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay.active .modal,
+.overlay.active .productreview-box,
+.overlay.active .addshop-box,
+.overlay.active .resetpwd-box {
+    transform: scale(1);
+}
+
+/* 加载等待的遮罩层 */
+.loading-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 加载动画 */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #ddd;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.productreview-box,
+.resetpwd-box {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.productreview-box input {
+    font-size: 16px;
+    margin: 7px 5px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    width: 280px;
+    height: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.productreview-box,
+.resetpwd-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.addshop-box {
+    transform: scale(0);
+    width: 400px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.resetpwd-box h2,
+.addshop-box h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+.addshop-box input {
+    width: 80%;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    background: #f9f9f9;
+}
+
+.addshop-box input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    background: #fff;
+}
+
+.addshop-box .buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.addshop-box .uploadButton {
+    flex: 1;
+    padding: 12px;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.addshop-box .uploadButton:hover {
+    background: linear-gradient(to right, #0056b3, #003b7a);
+    transform: scale(1.05);
+}
+
+/* 取消按钮 */
+.addshop-box .cancelButton {
+    flex: 1;
+    padding: 12px;
+    background: #eee;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.addshop-box .cancelButton:hover {
+    background: #ddd;
+    transform: scale(1.05);
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nav {
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    width: 1400px;
+    height: 65px;
+    background-color: #333333;
+    z-index: 1000;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    gap: 20px;
+    padding-left: 20px;
+}
+
+
+.nav button,
+.nav .logout,
+.nav .username,
+.nav .checkshop,
+.nav .usermoney {
+    height: 60px;
+    border-radius: 5px;
+    background-color: #333333;
+    width: 100px;
+    flex: 0 0 auto;
+    color: #fff;
+    font-size: 18px;
+    line-height: 60px;
+    text-align: center;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.nav .logout {
+    margin-left: auto;
+}
+
+.nav .username,
+.nav .usermoney {
+    text-align: left;
+    width: auto;
+    max-width: 180px;
+}
+
+.nav button:hover {
+    background-color: #ffffff;
+    color: #333333;
+    box-shadow: 0 0 4px 4px rgb(12, 12, 12);
+}
+
+.shopaccount {
+    margin: 20px auto 100px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1400px;
+    height: 600px;
+
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(65, 65, 65, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.shopaccount .shopaccount-head {
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 50px;
+    gap: 20px;
+}
+
+.shopaccount .shopemail,
+.shopaccount .shopname,
+.shopaccount .reset,
+.shopaccount .status,
+.shopaccount .delete {
+    width: 23%;
+    height: 80px;
+    line-height: 80px;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-head div {
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shopaccount .shopaccount-body {
+
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    height: 600px;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-head {
+    margin-left: 10px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 80px;
+    gap: 20px;
+}
+
+.shopaccount .shopaccount-head button {
+    margin-left: 20px;
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.shopaccount .shopaccount-head button:hover {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 0 0 4px 4px rgb(12, 12, 12);
+}
+
+.shopaccount .shopaccount-head .addshop:hover {
+    background-color: #fd5c5c;
+    color: #ffffff;
+    box-shadow: 0 0 4px 4px rgb(251, 112, 112);
+}
+
+.shopaccount .shopaccount-head .searchShop {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    color: #000;
+    width: 650px;
+    line-height: 60px;
+    font-size: 16px;
+
+}
+
+.shopaccount .shopaccount-head .searchShop .searchUserinput {
+    font-size: 16px;
+    margin: 7px 5px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    width: 280px;
+    height: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.shopaccount .shopaccount-head .searchShop .searchUserinput:focus {
+    border-color: #07faad;
+    box-shadow: 0 8px 10px rgba(0, 123, 255, 0.2);
+}
+
+
+
+.shopaccount .shopaccount-body .shopaccount-body-body {
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    gap: 20px;
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage {
+    flex: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 97.5%;
+    height: 80px;
+    gap: 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage:hover {
+    box-shadow: 0 0 4px 4px rgb(249, 171, 171);
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage .reset,
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage .changestatus {
+    line-height: 85px;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage button {
+    font-size: 18px;
+    padding: 0 10px;
+    height: 60px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.shopaccount .shopaccount-body .shopaccount-body-body .shopmessage button:hover {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 0 0 4px 4px rgb(12, 12, 12);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 1400px;
+    gap: 10px;
+    padding: 20px 0;
+    margin: 100px auto 0;
+}
+
+.products .product {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 340px;
+    height: 550px;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    gap: 10px;
+}
+
+.products .product .product-shop-options {
+    display: flex;
+    text-align: left;
+    gap: 20px;
+}
+
+.products .product .product-message,
+.products .product .change-message {
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    gap: 10px;
+}
+
+.products .product:hover {
+    box-shadow: 0 0 4px 4px rgb(14, 185, 185);
+}
+
+.products .product img {
+    width: 100%;
+    height: auto !important;
+    /* 高度自动调整 */
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 10px;
+}
+
+.products .product .change-name,
+.products .product .change-price,
+.products .product .change-stock,
+.products .product .change-category {
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.products .product .Product-name,
+.products .product .Product-price,
+.products .product .Product-category,
+.products .product .Product-stock {
+    height: 40px;
+    line-height: 40px;
+    width: 220px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.products .product .Product-price {
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(255, 98, 0);
+}
+
+
+.products .product .change-category .change-category-select {
+    cursor: pointer;
+    display: inline;
+    width: 123px;
+    height: 35px;
+    padding: 0 8px;
+    margin-left: 6px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.products .product .change-category .change-category-select:focus {
+    border-color: #07faad;
+    box-shadow: 0 8px 10px rgba(0, 123, 255, 0.2);
+}
+
+.products .product .change-name .change-name-input,
+.products .product .change-price .change-price-input,
+.products .product .change-stock .change-stock-input,
+.products .product .options .reviewfailresult {
+    margin-left: 10px;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.products .product .options .reviewfailresult {
+    margin-left: 0px;
+    width: 80px;
+    height: 40px;
+}
+
+
+.products .product input:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.products .product .options {
+    flex-direction: column;
+    display: flex;
+    justify-self: start;
+    gap: 20px
+}
+
+.products .product .options button {
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    border: #333333 3px solid;
+    border-radius: 10px;
+    transition: background-color .3s, color .3s;
+}
+
+.products .product .options button:hover {
+    background-color: black;
+    color: white;
+}
+
+.products .product .options .review:hover {
+    background-color: rgb(255, 115, 0);
+}
+
+
+.switch-page {
+    width: 1350px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 65px;
+    margin: 0 auto 20px;
+
+}
+
+.switch-page button {
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    font-size: 16px;
+    font-weight: 700;
+    border: #333333 3px solid;
+    border-radius: 5px;
+    transition: background-color .3s, color .3s;
+}
+
+.switch-page button:hover {
+    background-color: black;
+    color: white;
+}
+
+.switch-page button.next-page,
+.switch-page button.before-page {
+    width: 60px;
+}
+
+.switch-page button.active {
+    background-color: black;
+    color: white;
+}
+
+#saleChart {
+    height: 50px;
+}
+
+.saleChart {
+    width: 1400px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 50px auto;
+    flex-direction: column;
+}
+
+
+
+@media (min-width: 1700px) {
+    .nav {
+        width: 1750px;
+    }
+
+    .shopaccount {
+        width: 1750px;
+    }
+
+    .products {
+        width: 1750px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .saleChart {
+        width: 1750px;
+    }
+}
+
+.saleChart canvas {
+    width: 80% !important;
+    height: auto !important;
+    /* 高度自动调整 */
+    aspect-ratio: 2 / 1 !important;
+    /* 高度是宽度的 50% */
+}

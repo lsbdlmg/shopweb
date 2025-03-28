@@ -1,0 +1,166 @@
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .reg-box {
+            width: 600px;
+            height: 800px;
+            margin: 0 auto;
+
+        }
+
+        .head-box {
+            margin: 50px 0;
+            height: 50px;
+            border-bottom: 2px solid red;
+        }
+
+        .body-box {
+            height: 550px;
+            border: 1px solid #ccc;
+            border-bottom: 2px solid red;
+        }
+
+        .down-box {
+            height: 50px;
+
+        }
+
+        .body-box h3 {
+            height: 42px;
+            border-bottom: 1px solid #ccc;
+            background-color: #ececec;
+            line-height: 42px;
+            padding: 0 10px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .body-box h3>a {
+            float: right;
+            color: gray;
+        }
+
+        .body-box h3>a:hover {
+            color: orange;
+        }
+
+        .reg-form {
+            width: 500px;
+            background-color: white;
+            margin: 50px auto 0;
+        }
+
+        .reg-form ul li {
+            padding: 0 0 10px 0;
+            text-align: left;
+
+        }
+
+        .reg-form label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .reg-form ul li input {
+            width: 242px;
+            height: 37px;
+            padding: 0px 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .reg-form ul li input:focus {
+            border-color: #007bff;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .submit {
+            text-align: center;
+            width: 100px;
+            height: 37px;
+            margin: auto;
+        }
+
+        .submit input {
+            cursor: pointer;
+            width: 100px;
+            height: 37px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: red;
+            transition: background-color .3s;
+            margin: auto;
+        }
+
+        .submit input:active {
+            background-color: #fff;
+        }
+
+        .head-box h3 {
+            float: left;
+        }
+
+        .head-box a {
+            font-size: 14px;
+            float: right;
+            color: #000;
+        }
+
+        .head-box a:hover {
+            color: orange;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .reg-form span {
+            text-align: center;
+
+            display: inline-block;
+            color: red;
+            margin: 0 auto;
+
+        }
+
+        .reg-form #emailError,
+        #confirmPasswordError,
+        #passwordError {
+            text-indent: 10em;
+        }
+
+        .reg-form #nicknameError,
+        #codeError {
+            text-indent: 10em;
+        }
+
+        .reg-form #codeError {
+            text-indent: 10em;
+        }
+
+        .reg-form .sendcode button {
+            width: 100px;
+            height: 37px;
+            border: 1px solid;
+            text-indent: 0em;
+            margin: 0 0 10px 0;
+            color: red;
+            cursor: pointer;
+        }
