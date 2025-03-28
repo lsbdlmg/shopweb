@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="./css/order.css">
+</head>
+
+<body>
+    <!-- 加载等待提示框 -->
+    <div class="overlay" id="loadingOverlay">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <p>正在处理，请稍候...</p>
+        </div>
+    </div>
+
+    <!-- 处理完成的提示框 -->
+    <div class="overlay" id="successOverlay">
+        <div class="modal">
+            <p>&emsp;&emsp;加入购物车成功！</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="closeModal('successOverlay')">确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <button class="gobackindex">返回主页</button>
+        <button class="cart">购物车</button>
+        <!-- <div class="searchProduct">
+            <button class="searchProductbutton">点击搜索</button>
+            <input type="text" class="searchUserinput" placeholder="输入商品名称">
+            <label for="selectProduct">商品类别:</label>
+            <select id="selectProduct" name="category">
+                <option value="全部">全部</option>
+                <option value="数码产品">数码产品</option>
+                <option value="服装">服装</option>
+                <option value="生活用品">生活用品</option>
+                <option value="食品">食品</option>
+            </select>
+        </div> -->
+    </div>
+
+
+    <div class="orders">
+        <div class="orders-head-nav">
+            <button class="allorder">全部订单</button>
+            <button class="wait-out">待发货</button>
+            <button class="wait-in">待收货</button>
+            <div class="search-order">
+                <button class="search-orderbutton">订单搜索</button>
+                <input type="text" class="searchUserinput" placeholder="输入商品名称/订单编号">
+                <label for="select-order">商品类别:</label>
+                <select id="select-order" name="category">
+                    <option value="全部">全部</option>
+                    <option value="数码产品">数码产品</option>
+                    <option value="服装">服装</option>
+                    <option value="生活用品">生活用品</option>
+                    <option value="食品">食品</option>
+                </select>
+            </div>
+        </div>
+        <div class="orders-body">
+            <div class="orders-body-head">
+                <div class="order-detail">订单详情</div>
+                <div class="order-price">金额</div>
+                <div class="order-count">数量</div>
+                <div class="order-status">状态</div>
+                <div class="option">操作</div>
+            </div>
+            <div class="orders-body-body">
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="Allfunction.js"></script>
+<script>orderfunction()</script>
+
+</html>

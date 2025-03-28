@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="./css/productshow.css">
+</head>
+
+<body>
+    <!-- 加载等待提示框 -->
+    <div class="overlay" id="loadingOverlay">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <p>正在处理，请稍候...</p>
+        </div>
+    </div>
+    <!-- 处理完成的提示框 -->
+    <div class="overlay" id="successOverlay">
+        <div class="modal">
+            <p>&emsp;&emsp;加入购物车成功！</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="closeModal('successOverlay')">确定</button>
+            </div>
+        </div>
+    </div>
+    <!-- 购买遮罩层 -->
+    <div class="overlay " id="buyingOverlay">
+        <div class="buy-box">
+            <div class="product-message-buy">
+                <img src="./images/一把香菜.jpg" alt="1">
+                <div class="product-name-price">
+                    <div class="name">一把香菜</div>
+                    <div class="price">
+                        <span class="Product-price-symbol">￥</span><span class="Product-price-number">99.99</span>
+                    </div>
+                    <div class="stock">
+                        库存：99件
+                    </div>
+                    <div class="countoptions">
+                        <button class="reduceone">-</button>
+                        <input class="count" type="number" value="1" min="1" max="100">
+                        <button class="addone">+</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="countmoney">
+                <div class="needmoney">
+                    <span class="Product-price-symbol">合计：￥</span><span class="Product-price-number">999999999.9</span>
+                </div>
+                <div class="usermoney">
+                    <span class="Product-price-symbol">余额：￥</span><span class="Product-price-number">99999999.9</span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="confirm-btn">发起交易</button>
+                <button class="cancel-btn" onclick="closeModal('buyingOverlay')">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <button class="gobackindex">返回主页</button>
+        <button class="cart">购物车</button>
+        <button class="order">我的订单</button>
+    </div>
+    <div class="product-message">
+        <div class="product-nav">
+            <img src="./images/美丽风景.jpg">
+            <span>无</span>
+            <div class="enter-shop">进入店铺</div>
+        </div>
+        <div class="product-left">
+            <img src="./images/一把香菜.jpg" alt="一把香菜" class="s-img">
+            <img src="./images/一把香菜.jpg" alt="一把香菜" class="b-img">
+            <div class="product-right">
+                <div class="Product-name">商品已下架</div>
+                <div class="Product-price-category">
+                    <div class="Product-price">
+                        <span class="Product-price-symbol">￥</span><span class="Product-price-number">0</span>
+                    </div>
+                    <div class="Product-category">
+
+                    </div>
+                </div>
+                <div class="Product-stock">
+
+                </div>
+                <div class="options">
+                    <button class="buy-now">立即购买</button>
+                    <button class="add-cart">加入购物车</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="Allfunction.js"></script>
+<script>oneProductshowfunction()</script>
+
+</html>

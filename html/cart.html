@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="./css/cart.css">
+</head>
+
+<body>
+    <!-- 加载等待提示框 -->
+    <div class="overlay" id="loadingOverlay">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <p>正在处理，请稍候...</p>
+        </div>
+    </div>
+    <!-- 处理完成的提示框 -->
+    <div class="overlay" id="successOverlay">
+        <div class="modal">
+            <p>&emsp;&emsp;加入购物车成功！</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="closeModal('successOverlay')">确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <button class="gobackindex">返回主页</button>
+        <button class="order">我的订单</button>
+        <div class="searchProduct">
+            <button class="searchProductbutton">点击搜索</button>
+            <input type="text" class="searchUserinput" placeholder="搜索购物车商品名称">
+            <label for="selectProduct">商品类别:</label>
+            <select id="selectProduct" name="category">
+                <option value="全部">全部</option>
+                <option value="数码产品">数码产品</option>
+                <option value="服装">服装</option>
+                <option value="生活用品">生活用品</option>
+                <option value="食品">食品</option>
+            </select>
+        </div>
+    </div>
+    <div class="cart-message">
+        <div class="cart-nav">
+            <div class="select-all">
+                <div class="select-all-button">
+                </div>全选
+            </div>
+            <div class="Product-name">商品图片-名称</div>
+            <div class="Product-category">类别</div>
+            <div class="Product-price">单价</div>
+            <div class="Product-count">数量&&库存</div>
+            <div class="Product-count-money">小计</div>
+            <div class="option">操作</div>
+        </div>
+        <div class="cart-body">
+        </div>
+    </div>
+    </div>
+    <div class="checkout-bar">
+        <div class="all-conut">
+            已选件数：<span class="selected-count">0</span>
+        </div>
+        <div class="amount">
+            已选金额：<span class="selected-amount">¥0.00</span>
+        </div>
+
+        <button class="checkout-button">结算</button>
+    </div>
+</body>
+<script src="Allfunction.js"></script>
+<script>cartfunction()</script>
+
+</html>

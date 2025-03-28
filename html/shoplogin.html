@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商家/管理员登录</title>
+    <link rel="stylesheet" href="./css/login.css">
+
+</head>
+
+<body>
+    <div id="loading" style="display: none;">
+        <div class="loader"></div>
+    </div>
+    <div class="login-box">
+        <div class="head-box">
+            <h3>商家/管理员登录</h3>
+            <a href="index.html">返回主页</a>
+        </div>
+        <div class="body-box">
+            <h3>
+                <a href="userlogin.html" class="login">我是用户，去登录</a>
+            </h3>
+            <div class="login-form">
+                <ul>
+                    <li><label for="inputEmail">QQ邮箱：</label><input type="text" class="inputEmail" id="inputEmail"></li>
+                    <li><label for="inputpwd">密码：</label><input type="password" class="inputpwd" id="inputpwd"></li>
+                </ul>
+                <span class="message"></span>
+                <div class="submit">
+                    <button class="loginbutton" onclick="shoplogin(event)">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="Allfunction.js"></script>
+
+</html>

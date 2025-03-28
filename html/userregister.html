@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+    <div class="reg-box">
+        <div class="head-box">
+            <h3>个人注册</h3>
+            <a href="index.html">返回主页</a>
+        </div>
+        <div class="body-box">
+            <h3>注册新用户
+                <a href="userlogin.html" target="_blank">已有账号去登录</a>
+            </h3>
+            <div class="reg-form">
+                <ul>
+                    <li>
+                        <label for="inputEmail">QQ邮箱：</label>
+                        <input type="text" class="inputEmail" id="inputEmail" oninput="EmailInput()"
+                            onblur="EmailInput()">
+                        <br>
+                        <span id="emailError" style="color:red;"></span>
+                    </li>
+                    <li>
+                        <label for="inputpwd-1">密码：</label>
+                        <input type="password" class="inputpwd" id="inputpwd-1" oninput="PasswordInput()"
+                            onblur="PasswordInput()">
+                        <br>
+                        <span id="passwordError" style="color:red;"></span>
+                    </li>
+                    <li>
+                        <label for="inputpwd-2">再次输入密码：</label>
+                        <input type="password" class="inputpwd" id="inputpwd-2" oninput="ConfirmPasswordInput()"
+                            onblur="ConfirmPasswordInput()">
+                        <br>
+                        <span id="confirmPasswordError" style="color:red;"></span>
+                    </li>
+                    <li>
+                        <label for="inputName">昵称：</label>
+                        <input type="text" class="inputName" id="inputName" oninput="nameInput()" onblur="nameInput()">
+                        <br>
+                        <span id="nicknameError" style="color:red;"></span>
+                    </li>
+                    <li>
+                        <label for="inputcode">请输入验证码：</label>
+                        <input type="text" class="inputcode" id="inputcode">
+                        <br>
+                        <span id="codeError" style="color:red;"></span>
+                    </li>
+                </ul>
+
+                <div class="submit sendcode"><button onclick="sendCode(this)">发送验证码</button>
+                    <input type="submit" value="完成注册" onclick="submitForm(event)">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="Allfunction.js"></script>
+
+</html>

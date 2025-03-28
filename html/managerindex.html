@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/managerindex.css">
+    <title>凉水的神秘商店</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> <!-- 引入 chartjs-plugin-datalabels -->
+</head>
+
+<body>
+    <!-- 加载等待提示框 -->
+    <div class="overlay " id="loadingOverlay">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <p>正在处理，请稍候...</p>
+        </div>
+    </div>
+    <!-- 处理完成的提示框 -->
+    <div class="overlay " id="successOverlay">
+        <div class="modal">
+            <p>&emsp;&emsp;加入购物车成功！</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="closeModal('successOverlay')">确定</button>
+            </div>
+        </div>
+    </div>
+    <!-- 商品审核的提示框 -->
+    <div class="overlay" id="productreviewOverlay">
+        <div class="productreview-box">
+            <p>商品名：此处商品已下架</p>
+            <input type="text" class="result" placeholder="请输入驳回原因">
+            <div class="modal-buttons">
+                <button class="confirm-btn">确定</button>
+                <button class="cancel-btn" onclick="closeModal('productreviewOverlay')">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 添加商家的提示框 -->
+    <div class="overlay " id="addshopOverlay">
+        <div class="addshop-box">
+            <h2>添加商家</h2>
+            <input type="text" class="shopname" placeholder="商家名">
+            <input type="text" class="shopemail" placeholder="账号">
+            <input type="text" class="shoppwd" placeholder="密码">
+            <div class="buttons">
+                <button class="uploadButton">添加</button>
+                <button class="cancelButton" onclick="closeModal('addshopOverlay')">取消</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- 重置密码的提示框 -->
+    <div class="overlay " id="resetpwdOverlay">
+        <div class="resetpwd-box">
+            <h2>重置密码</h2>
+            <p>商家邮箱：2501995333@qq.com</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn">确定重置</button>
+                <button class="cancel-btn" onclick="closeModal('resetpwdOverlay')">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+    </div>
+    <div class="products" id="productreview">
+    </div>
+    <div class="switch-page" id="checkshop">
+    </div>
+    <div class="shopaccount">
+        <div class="shopaccount-head">
+            <!-- <button class="allshop">全部商家</button>
+            <button class="onwork">在职</button>
+            <button class="outwork">离职</button> -->
+            <button class="addshop">添加商家</button>
+            <div class="searchShop">
+                <button class="searchShopbutton">点击搜索</button>
+                <input type="text" class="searchUserinput" placeholder="搜索商家邮箱">
+            </div>
+        </div>
+
+        <div class="shopaccount-body">
+            <div class="shopaccount-body-head">
+                <div class="shopemail">商家账号</div>
+                <div class="shopname">商家名称</div>
+                <div class="reset">重置密码</div>
+                <div class="delete">删除商家</div>
+            </div>
+            <div class="shopaccount-body-body">
+            </div>
+        </div>
+    </div>
+    <div id="saleChart"></div>
+    <div class="saleChart">
+        <canvas class="categoryChart"></canvas>
+        <canvas class="sevendayChart"></canvas>
+        <canvas class="productChart"></canvas>
+    </div>
+</body>
+<script src="/chartjs/chart.umd.js"></script>
+<script src="Allfunction.js"></script>
+
+<script>managerindex()</script>
+
+</html>

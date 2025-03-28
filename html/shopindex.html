@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/shopindex.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> <!-- 引入 chartjs-plugin-datalabels -->
+    <title>凉水的神秘商店</title>
+</head>
+
+<body>
+    <div class="overlay" id="addproductOverlay">
+        <div class="addproduct-box">
+            <div class="preview">点击上传图片</div>
+            <input type="file" class="imageUpload" accept="image/*" hidden>
+            <input type="text" class="productName" placeholder="商品名称">
+            <input type="number" class="productPrice" placeholder="商品价格" value="" min="0">
+            <input type="number" class="productStock" placeholder="商品库存" value="" min="0">
+            <select class="productCategory">
+                <option value="数码产品">数码产品</option>
+                <option value="食品">食品</option>
+                <option value="服装">服装</option>
+                <option value="生活用品">生活用品</option>
+            </select>
+            <div class="buttons">
+                <button class="uploadButton">上传审核</button>
+                <button class="cancelButton">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 加载等待提示框 -->
+    <div class="overlay" id="loadingOverlay">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <p>正在处理，请稍候...</p>
+        </div>
+    </div>
+    <!-- 处理完成的提示框 -->
+    <div class="overlay" id="successOverlay">
+        <div class="modal">
+            <p>&emsp;&emsp;加入购物车成功！</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="closeModal('successOverlay')">确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+    </div>
+    <div class="products">
+    </div>
+    <div class="switch-page" id="saleChart">
+    </div>
+    <div class="saleChart">
+        <canvas class="categoryChart"></canvas>
+        <canvas class="sevendayChart"></canvas>
+        <canvas class="productChart"></canvas>
+    </div>
+
+    <div class="orders" id="orders">
+        <div class="orders-head-nav">
+            <button class="allorder">全部订单</button>
+            <button class="wait-out">待商家发货</button>
+            <button class="wait-in">订单已完成</button>
+            <div class="search-order">
+                <button class="search-orderbutton">订单搜索</button>
+                <input type="text" class="searchUserinput" placeholder="输入用户邮箱/订单编号">
+                <label for="select-order">商品类别:</label>
+                <select id="select-order" name="category">
+                    <option value="全部">全部</option>
+                    <option value="数码产品">数码产品</option>
+                    <option value="服装">服装</option>
+                    <option value="生活用品">生活用品</option>
+                    <option value="食品">食品</option>
+                </select>
+            </div>
+        </div>
+        <div class="orders-body">
+            <div class="orders-body-head">
+                <div class="order-detail">订单详情</div>
+                <div class="order-price">金额</div>
+                <div class="order-count">数量</div>
+                <div class="order-status">状态</div>
+                <div class="option">操作</div>
+            </div>
+            <div class="orders-body-body">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script src="Allfunction.js"></script>
+<script src="/chartjs/chart.umd.js"></script>
+<script>shopindex()</script>
+
+</html>
